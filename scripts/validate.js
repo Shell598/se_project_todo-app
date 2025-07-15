@@ -1,3 +1,7 @@
+/* not sure if I am supposed to delete this after moving to FormValidator,
+
+
+
 const showInputError = (formElement, inputElement, errorMessage, settings) => {
   const errorElementId = `#${inputElement.id}-error`;
   const errorElement = formElement.querySelector(errorElementId);
@@ -69,4 +73,4 @@ const enableValidation = (settings) => {
   setEventListeners(formElement, settings);
 };
 
-enableValidation(validationConfig);
+//enableValidation(validationConfig);
