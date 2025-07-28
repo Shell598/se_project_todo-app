@@ -57,9 +57,7 @@ class FormValidator {
     this._inputList = Array.from(
       this._formEl.querySelectorAll(this._inputSelector)
     );
-    this._buttonEl = this._formEl.querySelector(
-      this._submitButtonSelector
-    );
+    this._buttonEl = this._formEl.querySelector(this._submitButtonSelector);
 
     this._toggleButtonState();
 
@@ -80,5 +78,3 @@ class FormValidator {
 }
 
 export default FormValidator;
-
-import { validationConfig } from "../utils/constants.js";

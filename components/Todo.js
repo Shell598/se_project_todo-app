@@ -24,8 +24,7 @@ class Todo {
 
   _generateDueDate() {
     const dueDate = new Date(this._data.date);
-const date = new Date("2025-07-15T12:00:00");
-date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
     if (!isNaN(dueDate)) {
       this._todoDate.textContent = `Due: ${dueDate.toLocaleString("en-US", {
         year: "numeric",
@@ -35,7 +34,6 @@ date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
         minute: "numeric",
         second: "numeric",
         hour12: false,
-
       })}`;
     }
   }
