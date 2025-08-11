@@ -8,7 +8,6 @@ Make day to day projects easier with this planner! Setup where you will start, w
 
 Simply click on the "+Add Todo" button, Name your project, and set a time to it. Mark it off when completed.
 
-
 ## Technology
 
 This Easy-to-use App was created using HTML, CSS, & JS
