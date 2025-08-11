@@ -24,7 +24,7 @@ class Todo {
 
   _generateDueDate() {
     const dueDate = new Date(this._data.date);
-    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+    dueDate.setMinutes(dueDate.getMinutes() + dueDate.getTimezoneOffset());
     if (!isNaN(dueDate)) {
       this._todoDate.textContent = `Due: ${dueDate.toLocaleString("en-US", {
         year: "numeric",

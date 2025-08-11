@@ -7,19 +7,26 @@ import FormValidator from "../components/FormValidator.js";
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
 const formValidator = new FormValidator(validationConfig, addTodoForm);
-formValidator.enableValidation();
 const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
 const todosList = document.querySelector(".todos__list");
+const addTodoForm = document.querySelector("#add-todo-form");
 
 const openModal = (modal) => {
+  function handleEscKey(evt) {
+    if (evt.key === "Escape") {
+      const openModal = document.querySelector(".popup_visible");
+      if (openModal) {
+        closeModal(openModal);
+      }
+    }
+  }
+  document.addEventListener("keydown", handleEscKey);
   modal.classList.add("popup_visible");
 };
 
 const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
 };
-
-
 
 addTodoButton.addEventListener("click", () => {
   openModal(addTodoPopup);
@@ -45,7 +52,7 @@ addTodoForm.addEventListener("submit", (evt) => {
   const values = { name, date, id };
   renderTodo(values);
   closeModal(addTodoPopup);
-  const formValidator = new FormValidator(validationConfig, addTodoForm);
+ 
   formValidator.resetValidation();
 });
 
