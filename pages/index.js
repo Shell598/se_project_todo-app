@@ -9,22 +9,28 @@ const addTodoPopup = document.querySelector("#add-todo-popup");
 const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
 const todosList = document.querySelector(".todos__list");
 const addTodoForm = document.querySelector("#add-todo-form");
+const formValidator = new FormValidator(validationConfig, addTodoForm);
+formValidator.enableValidation();
 
-const openModal = (modal) => {
-  function handleEscKey(evt) {
-    if (evt.key === "Escape") {
-      const openModal = document.querySelector(".popup_visible");
-      if (openModal) {
-        closeModal(openModal);
-      }
+const handleEscKey = (evt) => {
+  if (evt.key === "Escape") {
+    const openModal = document.querySelector(".popup_visible");
+    if (openModal) {
+      closeModal(openModal);
     }
   }
-  document.addEventListener("keydown", handleEscKey);
+};
+
+
+
+const openModal = (modal) => {
   modal.classList.add("popup_visible");
+  document.addEventListener("keydown", handleEscKey);
 };
 
 const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
+  document.removeEventListener("keydown", handleEscKey);
 };
 
 addTodoButton.addEventListener("click", () => {
@@ -51,8 +57,6 @@ addTodoForm.addEventListener("submit", (evt) => {
   const values = { name, date, id };
   renderTodo(values);
   closeModal(addTodoPopup);
-  const formValidator = new FormValidator(validationConfig, addTodoForm);
-  formValidator.resetValidation();
 });
 
 const generateTodo = (data) => {
