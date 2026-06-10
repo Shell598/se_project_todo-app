@@ -1,3 +1,4 @@
+
 class Todo {
   constructor(data, selector, updateTodoCounter, handleDeleteTodo) {
     this._data = data;
@@ -19,11 +20,12 @@ class Todo {
     });
   }
 
+
   _generateCheckbox() {
     this._todoCheckboxElement = this._todoElement.querySelector(".todo__completed");
     this._todoLabel = this._todoElement.querySelector(".todo__label");
     this._todoCheckboxElement.checked = this._data.completed;
-    this._todoCheckboxElement.id = 'todo-${this._data.id}';
+    this._todoCheckboxElement.id = `todo-${this._data.id}`;
     this._todoLabel.setAttribute("for", `todo-${this._data.id}`);
   }
 
